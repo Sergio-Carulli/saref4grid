@@ -1,1 +1,1 @@
-# saref4grid
+Repository for the SAREF4GRID ontology 
