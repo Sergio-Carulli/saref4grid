@@ -1,0 +1,107 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4grid: <https://w3id.org/def/saref4grid#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/def/saref4grid/example/Set#> a dctype:Dataset ;
+  dcterms:license <https://forge.etsi.org/etsi-software-license> ;
+  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:title "Example Set"@en ;
+  dcterms:description "Example Set"@en .
+ 
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+oneM2M:hasService a owl:ObjectProperty .
+
+oneM2M:hasOperation a owl:ObjectProperty .
+
+oneM2M:hasInput a owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+s4grid:getInputFromObis a owl:DatatypeProperty .
+
+s4grid:inputObjectType a owl:DatatypeProperty .
+
+s4grid:getInputForProperty a owl:DatatypeProperty .
+
+s4grid:inputDataType a owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+s4grid:Meter a owl:Class .
+
+s4grid:SetService a owl:Class .
+
+s4grid:SetOperation a owl:Class .
+
+s4grid:SetOperationObisInput a owl:Class .
+
+s4grid:SetOperationObjectInput a owl:Class .
+
+s4grid:SetOperationDataInput a owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+s4grid:Meter1234 a s4grid:Meter,
+        owl:NamedIndividual ;
+    oneM2M:hasService s4grid:SetMulticastCommunicationIdentifier,
+			s4grid:SetServiceCapturePeriodIncrementalLoadProfile,
+			s4grid:SetServiceDisconnectionScript .
+
+s4grid:SetMulticastCommunicationIdentifier a s4grid:SetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:SetOperationMulticastCommunicationIdentifier .
+
+s4grid:SetOperationMulticastCommunicationIdentifier a s4grid:SetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:InputMulticastCommunicationIdentifier .
+
+s4grid:InputMulticastCommunicationIdentifier a s4grid:SetOperationObisInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "0-0:96.1.5.255"^^xsd:string ;
+	s4grid:inputObjectType "s4grid:PropertyValue"^^xsd:string .
+
+s4grid:SetServiceCapturePeriodIncrementalLoadProfile a s4grid:SetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:SetOperationCapturePeriodIncrementalLoadProfile .
+
+s4grid:SetOperationCapturePeriodIncrementalLoadProfile a s4grid:SetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:InputCapturePeriodIncrementalLoadProfile .
+
+s4grid:InputCapturePeriodIncrementalLoadProfile a s4grid:SetOperationDataInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string ;
+	s4grid:getInputForProperty "s4grid:hasCapturePeriod"^^xsd:string ;
+	s4grid:inputDataType "xsd:unsignedLong"^^xsd:string .
+
+s4grid:SetServiceDisconnectionScript a s4grid:SetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:SetOperationDisconnectionScript .
+
+s4grid:SetOperationDisconnectionScript a s4grid:SetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:InputDisconnectionScript .
+
+s4grid:InputDisconnectionScript a s4grid:SetOperationObjectInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "0-0:10.0.196.255"^^xsd:string ;
+	s4grid:getInputForProperty "s4grid:storesScript"^^xsd:string ;
+	s4grid:inputObjectType "s4grid:Script"^^xsd:string .

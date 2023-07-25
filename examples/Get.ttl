@@ -1,0 +1,123 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4grid: <https://w3id.org/def/saref4grid#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/def/saref4grid/example/Get#> a dctype:Dataset ;
+  dcterms:license <https://forge.etsi.org/etsi-software-license> ;
+  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:title "Example Get"@en ;
+  dcterms:description "Example Get"@en .
+ 
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+oneM2M:hasService a owl:ObjectProperty .
+
+oneM2M:hasOperation a owl:ObjectProperty .
+
+oneM2M:hasInput a owl:ObjectProperty .
+
+oneM2M:hasOutput owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+s4grid:getInputFromObis a owl:DatatypeProperty .
+
+s4grid:outputObjectType a owl:DatatypeProperty .
+
+s4grid:getInputForProperty a owl:DatatypeProperty .
+
+s4grid:outputDataType a owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+s4grid:Meter a owl:Class .
+
+s4grid:GetService a owl:Class .
+
+s4grid:GetOperation a owl:Class .
+
+s4grid:CosemOperationInput a owl:Class .
+
+s4grid:GetOperationObjectOutput a owl:Class .
+
+s4grid:GetOperationPropertyInput a owl:Class .
+
+s4grid:GetOperationDataOutput a owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+s4grid:Meter1234 a s4grid:Meter,
+        owl:NamedIndividual ;
+    oneM2M:hasService s4grid:GetServiceIncrementalLoadProfile,
+			s4grid:GetServiceCapturePeriodIncrementalLoadProfile,
+			s4grid:GetServiceDisconnectionScript .
+
+s4grid:GetServiceIncrementalLoadProfile a s4grid:GetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:GetOperationIncrementalLoadProfile .
+
+s4grid:GetOperationIncrementalLoadProfile a s4grid:GetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:OperationInputIncrementalLoadProfile ;
+	oneM2M:hasOutput s4grid:OutputIncrementalLoadProfile .
+
+s4grid:OperationInputIncrementalLoadProfile a s4grid:CosemOperationInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string .
+
+s4grid:OutputIncrementalLoadProfile a s4grid:GetOperationObjectOutput,
+        owl:NamedIndividual ;
+    s4grid:outputObjectType "s4grid:ProfileGeneric"^^xsd:string .
+
+s4grid:GetServiceCapturePeriodIncrementalLoadProfile a s4grid:GetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation GetOperationCapturePeriodIncrementalLoadProfile .
+
+s4grid:GetOperationCapturePeriodIncrementalLoadProfile a s4grid:GetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:OperationInputCapturePeriodIncrementalLoadProfile ;
+	oneM2M:hasOutput s4grid:OutputCapturePeriodIncrementalLoadProfile .
+
+s4grid:OperationInputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationPropertyInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string ;
+	s4grid:getInputForProperty "s4grid:hasCapturePeriod"^^xsd:string .
+
+s4grid:OutputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationDataOutput,
+        owl:NamedIndividual ;
+    s4grid:outputDataType "xsd:unsignedLong"^^xsd:string .
+
+s4grid:GetServiceDisconnectionScript a s4grid:GetService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation GetOperationDisconnectionScript .
+
+s4grid:GetOperationDisconnectionScript a s4grid:GetOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:OperationInputDisconnectionScript ;
+	oneM2M:hasOutput s4grid:OutputDisconnectionScript .
+
+s4grid:OperationInputDisconnectionScript a s4grid:GetOperationPropertyInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "0-0:10.0.196.255"^^xsd:string ;
+	s4grid:getInputForProperty "s4grid:storesScript"^^xsd:string .
+
+s4grid:OutputDisconnectionScript a s4grid:GetOperationObjectOutput,
+        owl:NamedIndividual ;
+    s4grid:outputObjectType "s4grid:Script"^^xsd:string .

@@ -1,0 +1,149 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4grid: <https://w3id.org/def/saref4grid#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/def/saref4grid/example/ActivityCalendar#> a dctype:Dataset ;
+  dcterms:license <https://forge.etsi.org/etsi-software-license> ;
+  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:title "Example Activity Calendar"@en ;
+  dcterms:description "Example Activity Calendar"@en .
+  
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+s4grid:executeScript a owl:ObjectProperty .
+
+s4grid:hasActivityCalendar a owl:ObjectProperty .
+
+s4grid:hasDaySchedule a owl:ObjectProperty .
+
+s4grid:hasMondayProfile a owl:ObjectProperty .
+
+s4grid:hasTuesdayProfile a owl:ObjectProperty .
+
+s4grid:hasWednesdayProfile a owl:ObjectProperty .
+
+s4grid:hasThursdayrofile a owl:ObjectProperty .
+
+s4grid:hasFridayProfile a owl:ObjectProperty .
+
+s4grid:hasSeasonProfileActive a owl:ObjectProperty .
+
+s4grid:hasSpecialDayProfile a owl:ObjectProperty .
+
+s4grid:hasSaturdayProfile a owl:ObjectProperty .
+
+s4grid:hasSundayProfile a owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+s4grid:hasActivatePassiveCalendarTime a owl:DatatypeProperty .
+
+s4grid:hasCalendarNameActive a owl:DatatypeProperty .
+
+s4grid:hasCalendarNamePassive a owl:DatatypeProperty .
+
+s4grid:hasObis a owl:DatatypeProperty .
+
+s4grid:hasSeasonProfileName a owl:DatatypeProperty .
+
+s4grid:hasSeasonStart a owl:DatatypeProperty .
+
+s4grid:hasSpecialDayDate a owl:DatatypeProperty .
+
+s4grid:hasStartTime a owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+s4grid:Meter a owl:Class .
+
+s4grid:ActivityCalendar a owl:Class .
+
+s4grid:RegularDayProfile a owl:Class .
+
+s4grid:Script a owl:Class .
+
+s4grid:SpecialDayProfile a owl:Class .
+
+s4grid:DaySchedule a owl:Class .
+
+s4grid:Season a owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+s4grid:ActivityCalendarContract1-1234 a s4grid:ActivityCalendar,
+        owl:NamedIndividual ;
+    s4grid:hasActivatePassiveCalendarTime "2023-01-17T02:00:00"^^xsd:dateTime ;
+    s4grid:hasCalendarNameActive "First quarter of 2023 active"^^xsd:string ;
+    s4grid:hasCalendarNamePassive "First quarter of 2023 passive"^^xsd:string ;
+    s4grid:hasObis "0-0:13.0.1.255"^^xsd:string ;
+	s4grid:hasSeasonProfileActive s4grid:SeasonActive1.
+
+s4grid:Meter1234 a s4grid:Meter,
+        owl:NamedIndividual ;
+	s4grid:hasActivityCalendar s4grid:ActivityCalendarContract1-1234.
+
+s4grid:ResetBillingPeriod1 a s4grid:Script,
+        owl:NamedIndividual .
+
+s4grid:ResetBillingPeriod2 a s4grid:Script,
+        owl:NamedIndividual .
+
+s4grid:ResetBillingPeriod3 a s4grid:Script,
+        owl:NamedIndividual .
+
+s4grid:SeasonActive1 a s4grid:Season,
+        owl:NamedIndividual ;
+	s4grid:hasSeasonProfileName "January 2023 active"^^xsd:string ;
+    s4grid:hasSeasonStart "2023-01-01T00:00:00"^^xsd:dateTime ;
+	s4grid:hasMondayProfile s4grid:Weekday ;
+	s4grid:hasTuesdayProfile s4grid:Weekday ;
+	s4grid:hasWednesdayProfile s4grid:Weekday ;
+	s4grid:hasThursdayProfile s4grid:Weekday ;
+	s4grid:hasFridayProfile s4grid:Weekday ;
+	s4grid:hasSpecialDayProfile s4grid:SpecialFriday ;
+	s4grid:hasSaturdayProfile s4grid:Weekendday ;
+	s4grid:hasSundayProfile s4grid:Weekendday .
+
+s4grid:SpecialFriday1 a s4grid:SpecialDayProfile,
+        owl:NamedIndividual ;
+	s4grid:hasSpecialDayDate "2023-01-06"^^xsd:date ;
+    s4grid:hasDaySchedule s4grid:SpecialTariffPeriod1 .
+
+s4grid:SpecialTariffPeriod1 a s4grid:DaySchedule,
+        owl:NamedIndividual ;
+    s4grid:executeScript s4grid:ResetBillingPeriod3 ;
+    s4grid:hasStartTime "09:00:00"^^xsd:time .
+
+s4grid:WeekDay a s4grid:RegularDayProfile,
+        owl:NamedIndividual ;
+    s4grid:hasDaySchedule s4grid:WeekDayTariffPeriod1 .
+
+s4grid:WeekendDay a s4grid:RegularDayProfile,
+        owl:NamedIndividual ;
+    s4grid:hasDaySchedule s4grid:WeekendTariffPeriod1 .
+
+s4grid:WeekDayTariffPeriod1 a s4grid:DaySchedule,
+        owl:NamedIndividual ;
+    s4grid:executeScript s4grid:ResetBillingPeriod1 ;
+    s4grid:hasStartTime "09:00:00"^^xsd:time .
+	
+s4grid:WeekendTariffPeriod1 a s4grid:DaySchedule,
+        owl:NamedIndividual ;
+    s4grid:executeScript s4grid:ResetBillingPeriod2 ;
+    s4grid:hasStartTime "09:00:00"^^xsd:time .

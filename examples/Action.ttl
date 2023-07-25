@@ -1,0 +1,94 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4grid: <https://w3id.org/def/saref4grid#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/def/saref4grid/example/Action#> a dctype:Dataset ;
+  dcterms:license <https://forge.etsi.org/etsi-software-license> ;
+  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:title "Example Action"@en ;
+  dcterms:description "Example Action"@en .
+ 
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+oneM2M:hasService a owl:ObjectProperty .
+
+oneM2M:hasOperation a owl:ObjectProperty .
+
+oneM2M:hasInput a owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+s4grid:getInputFromObis a owl:DatatypeProperty .
+
+s4grid:hasActionInput a owl:DatatypeProperty .
+
+s4grid:hasPresetTime a owl:DatatypeProperty .
+
+s4grid:hasValidityIntervalStart a owl:DatatypeProperty .
+
+s4grid:hasValidityIntervalEnd a owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+s4grid:Meter a owl:Class .
+
+s4grid:ActionService a owl:Class .
+
+s4grid:ActionOperation a owl:Class .
+
+s4grid:SimpleOperationInput a owl:Class .
+
+s4grid:PresetAdjustingTime a owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+s4grid:Meter1234 a s4grid:Meter,
+        owl:NamedIndividual ;
+    oneM2M:hasService s4grid:ResetServiceRegister,
+			s4grid:PresetAdjustingTimeServiceClock .
+
+s4grid:ResetServiceRegister a s4grid:ActionService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:ResetServiceOperation .
+
+s4grid:ResetServiceOperation a s4grid:ActionOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:ResetServiceOperationInput .
+
+s4grid:ResetServiceOperationInput a s4grid:SimpleOperationInput,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "0-1:94.34.1.255"^^xsd:string ;
+	s4grid:hasActionInput "0"^^xsd:int .
+
+
+s4grid:PresetAdjustingTimeServiceClock a s4grid:ActionService,
+        owl:NamedIndividual ;
+    oneM2M:hasOperation s4grid:PresetAdjustingTimeOperation .
+
+s4grid:PresetAdjustingTimeOperation a s4grid:ActionOperation,
+        owl:NamedIndividual ;
+    oneM2M:hasInput s4grid:PresetAdjustingTime1 .
+
+s4grid:PresetAdjustingTime1 a s4grid:PresetAdjustingTime,
+        owl:NamedIndividual ;
+    s4grid:getInputFromObis "0-0:1.0.0.255"^^xsd:string ;
+	s4grid:hasPresetTime "2023-05-30T09:00:00"^^xsd:dateTime ;
+	s4grid:hasValidityIntervalStart "2023-05-30T10:00:00"^^xsd:dateTime ;
+	s4grid:hasValidityIntervalEnd "2023-05-30T12:00:00"^^xsd:dateTime .
