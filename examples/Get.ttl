@@ -1,14 +1,17 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix ex: <https://saref.etsi.org/saref4grid/v1.0.0/example/Get/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s4grid: <https://w3id.org/def/saref4grid#> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix s4grid: <https://saref.etsi.org/saref4grid/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-<https://w3id.org/def/saref4grid/example/Get#> a dctype:Dataset ;
+<https://saref.etsi.org/saref4grid/v1.0.0/example/Get#> a dctype:Dataset ;
   dcterms:license <https://forge.etsi.org/etsi-software-license> ;
-  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:conformsTo <https://saref.etsi.org/saref4grid/v1.0.0/> ;
   dcterms:title "Example Get"@en ;
   dcterms:description "Example Get"@en .
  
@@ -24,7 +27,7 @@ oneM2M:hasOperation a owl:ObjectProperty .
 
 oneM2M:hasInput a owl:ObjectProperty .
 
-oneM2M:hasOutput owl:ObjectProperty .
+oneM2M:hasOutput a owl:ObjectProperty .
 
 
 #################################################################
@@ -63,61 +66,61 @@ s4grid:GetOperationDataOutput a owl:Class .
 #    Individuals
 #################################################################
 
-s4grid:Meter1234 a s4grid:Meter,
+ex:Meter1234 a s4grid:Meter,
         owl:NamedIndividual ;
-    oneM2M:hasService s4grid:GetServiceIncrementalLoadProfile,
-			s4grid:GetServiceCapturePeriodIncrementalLoadProfile,
-			s4grid:GetServiceDisconnectionScript .
+    oneM2M:hasService ex:GetServiceIncrementalLoadProfile,
+			ex:GetServiceCapturePeriodIncrementalLoadProfile,
+			ex:GetServiceDisconnectionScript .
 
-s4grid:GetServiceIncrementalLoadProfile a s4grid:GetService,
+ex:GetServiceIncrementalLoadProfile a s4grid:GetService,
         owl:NamedIndividual ;
-    oneM2M:hasOperation s4grid:GetOperationIncrementalLoadProfile .
+    oneM2M:hasOperation ex:GetOperationIncrementalLoadProfile .
 
-s4grid:GetOperationIncrementalLoadProfile a s4grid:GetOperation,
+ex:GetOperationIncrementalLoadProfile a s4grid:GetOperation,
         owl:NamedIndividual ;
-    oneM2M:hasInput s4grid:OperationInputIncrementalLoadProfile ;
-	oneM2M:hasOutput s4grid:OutputIncrementalLoadProfile .
+    oneM2M:hasInput ex:OperationInputIncrementalLoadProfile ;
+	oneM2M:hasOutput ex:OutputIncrementalLoadProfile .
 
-s4grid:OperationInputIncrementalLoadProfile a s4grid:CosemOperationInput,
+ex:OperationInputIncrementalLoadProfile a s4grid:CosemOperationInput,
         owl:NamedIndividual ;
     s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string .
 
-s4grid:OutputIncrementalLoadProfile a s4grid:GetOperationObjectOutput,
+ex:OutputIncrementalLoadProfile a s4grid:GetOperationObjectOutput,
         owl:NamedIndividual ;
     s4grid:outputObjectType "s4grid:ProfileGeneric"^^xsd:string .
 
-s4grid:GetServiceCapturePeriodIncrementalLoadProfile a s4grid:GetService,
+ex:GetServiceCapturePeriodIncrementalLoadProfile a s4grid:GetService,
         owl:NamedIndividual ;
-    oneM2M:hasOperation GetOperationCapturePeriodIncrementalLoadProfile .
+    oneM2M:hasOperation ex:GetOperationCapturePeriodIncrementalLoadProfile .
 
-s4grid:GetOperationCapturePeriodIncrementalLoadProfile a s4grid:GetOperation,
+ex:GetOperationCapturePeriodIncrementalLoadProfile a s4grid:GetOperation,
         owl:NamedIndividual ;
-    oneM2M:hasInput s4grid:OperationInputCapturePeriodIncrementalLoadProfile ;
-	oneM2M:hasOutput s4grid:OutputCapturePeriodIncrementalLoadProfile .
+    oneM2M:hasInput ex:OperationInputCapturePeriodIncrementalLoadProfile ;
+	oneM2M:hasOutput ex:OutputCapturePeriodIncrementalLoadProfile .
 
-s4grid:OperationInputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationPropertyInput,
+ex:OperationInputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationPropertyInput,
         owl:NamedIndividual ;
     s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string ;
 	s4grid:getInputForProperty "s4grid:hasCapturePeriod"^^xsd:string .
 
-s4grid:OutputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationDataOutput,
+ex:OutputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationDataOutput,
         owl:NamedIndividual ;
     s4grid:outputDataType "xsd:unsignedLong"^^xsd:string .
 
-s4grid:GetServiceDisconnectionScript a s4grid:GetService,
+ex:GetServiceDisconnectionScript a s4grid:GetService,
         owl:NamedIndividual ;
-    oneM2M:hasOperation GetOperationDisconnectionScript .
+    oneM2M:hasOperation ex:GetOperationDisconnectionScript .
 
-s4grid:GetOperationDisconnectionScript a s4grid:GetOperation,
+ex:GetOperationDisconnectionScript a s4grid:GetOperation,
         owl:NamedIndividual ;
-    oneM2M:hasInput s4grid:OperationInputDisconnectionScript ;
-	oneM2M:hasOutput s4grid:OutputDisconnectionScript .
+    oneM2M:hasInput ex:OperationInputDisconnectionScript ;
+	oneM2M:hasOutput ex:OutputDisconnectionScript .
 
-s4grid:OperationInputDisconnectionScript a s4grid:GetOperationPropertyInput,
+ex:OperationInputDisconnectionScript a s4grid:GetOperationPropertyInput,
         owl:NamedIndividual ;
     s4grid:getInputFromObis "0-0:10.0.196.255"^^xsd:string ;
 	s4grid:getInputForProperty "s4grid:storesScript"^^xsd:string .
 
-s4grid:OutputDisconnectionScript a s4grid:GetOperationObjectOutput,
+ex:OutputDisconnectionScript a s4grid:GetOperationObjectOutput,
         owl:NamedIndividual ;
     s4grid:outputObjectType "s4grid:Script"^^xsd:string .

@@ -1,14 +1,18 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix ex: <https://saref.etsi.org/saref4grid/v1.0.0/example/ConnectivityState/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s4grid: <https://w3id.org/def/saref4grid#> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix s4grid: <https://saref.etsi.org/saref4grid/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-<https://w3id.org/def/saref4grid/example/ConnectivityState#> a dctype:Dataset ;
+
+<https://saref.etsi.org/saref4grid/v1.0.0/example/ConnectivityState#> a dctype:Dataset ;
   dcterms:license <https://forge.etsi.org/etsi-software-license> ;
-  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:conformsTo <https://saref.etsi.org/saref4grid/v1.0.0/> ;
   dcterms:title "Example Connectivity State"@en ;
   dcterms:description "Example Connectivity State"@en .
 
@@ -18,7 +22,7 @@
 #    Object Properties
 #################################################################
 
-s4grid:hasState a owl:ObjectProperty .
+saref:hasState a owl:ObjectProperty .
 
 
 #################################################################
@@ -47,11 +51,11 @@ s4grid:Meter a owl:Class .
 #    Individuals
 #################################################################
 
-s4grid:Meter1234 a s4grid:Meter,
+ex:Meter1234 a s4grid:Meter,
         owl:NamedIndividual ;
-    s4grid:hasState s4grid:CurrentConnectivityState .
+    saref:hasState ex:CurrentConnectivityState .
 
-s4grid:CurrentConnectivityState a s4grid:ConnectivityState,
+ex:CurrentConnectivityState a s4grid:ConnectivityState,
         owl:NamedIndividual ;
     s4grid:hasControlMode "1"^^xsd:int ;
     s4grid:hasControlState "1"^^xsd:int ;

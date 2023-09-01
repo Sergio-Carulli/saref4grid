@@ -1,14 +1,17 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix ex: <https://saref.etsi.org/saref4grid/v1.0.0/example/ScriptTable_SingleActionSchedule/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s4grid: <https://w3id.org/def/saref4grid#> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix s4grid: <https://saref.etsi.org/saref4grid/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-<https://w3id.org/def/saref4grid/example/ScriptTable_SingleActionSchedule#> a dctype:Dataset ;
+<https://saref.etsi.org/saref4grid/v1.0.0/example/ScriptTable_SingleActionSchedule#> a dctype:Dataset ;
   dcterms:license <https://forge.etsi.org/etsi-software-license> ;
-  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:conformsTo <https://saref.etsi.org/saref4grid/v1.0.0/> ;
   dcterms:title "Example Script Table and Single Action Schedule"@en ;
   dcterms:description "Example Script Table and Single Action Schedule"@en .
  
@@ -22,7 +25,7 @@ s4grid:executesScript a owl:ObjectProperty .
 
 s4grid:hasScriptTable a owl:ObjectProperty .
 
-s4grid:hasSingleScheduleAction a owl:ObjectProperty 
+s4grid:hasSingleScheduleAction a owl:ObjectProperty .
 
 s4grid:storesScript a owl:ObjectProperty .
 
@@ -34,6 +37,7 @@ s4grid:storesScript a owl:ObjectProperty .
 s4grid:hasExecutionTime a owl:DatatypeProperty .
 
 s4grid:hasObis a owl:DatatypeProperty .
+
 
 #################################################################
 #    Classes
@@ -52,23 +56,23 @@ s4grid:SingleScheduleAction a owl:Class .
 #    Individuals
 #################################################################
 
-s4grid:Meter1234 a s4grid:Meter,
+ex:Meter1234 a s4grid:Meter,
         owl:NamedIndividual ;
-    s4grid:hasScriptTable s4grid:DisconnectScriptTable ;
-    s4grid:hasSingleScheduleAction s4grid:DisconnectControlScheduler .
+    s4grid:hasScriptTable ex:DisconnectScriptTable ;
+    s4grid:hasSingleScheduleAction ex:DisconnectControlScheduler .
 
-s4grid:ConnectionScript a s4grid:Script,
+ex:ConnectionScript a s4grid:Script,
         owl:NamedIndividual .
 
-s4grid:DisconnectControlScheduler a s4grid:SingleScheduleAction,
+ex:DisconnectControlScheduler a s4grid:SingleScheduleAction,
         owl:NamedIndividual ;
     s4grid:hasExecutionTime "2023-10-25T09:00:00"^^xsd:dateTime ;
     s4grid:hasObis "0-0:96.3.10.255"^^xsd:string .
 
-s4grid:DisconnectScriptTable a s4grid:ScriptTable,
+ex:DisconnectScriptTable a s4grid:ScriptTable,
         owl:NamedIndividual ;
-    s4grid:storesScript s4grid:ConnectionScript,
-        s4grid:DisconnectionScript .
+    s4grid:storesScript ex:ConnectionScript,
+        ex:DisconnectionScript .
 
-s4grid:DisconnectionScript a s4grid:Script,
+ex:DisconnectionScript a s4grid:Script,
         owl:NamedIndividual .

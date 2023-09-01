@@ -1,14 +1,19 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix ex: <https://saref.etsi.org/saref4grid/v1.0.0/example/Measurements/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s4grid: <https://w3id.org/def/saref4grid#> .
-@prefix saref: <https://w3id.org/saref#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oneM2M: <http://www.owl-ontologies.com/oneM2M#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix s4grid: <https://saref.etsi.org/saref4grid/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2> .
 
-<https://w3id.org/def/saref4grid/example/Measurements#> a dctype:Dataset ;
+<https://saref.etsi.org/saref4grid/v1.0.0/example/Measurements#> a dctype:Dataset ;
   dcterms:license <https://forge.etsi.org/etsi-software-license> ;
-  dcterms:conformsTo <https://w3id.org/def/saref4grid#> ;
+  dcterms:conformsTo <https://saref.etsi.org/saref4grid/v1.0.0/> ;
   dcterms:title "Example Measurements"@en ;
   dcterms:description "Example Measurements"@en .
 
@@ -65,54 +70,54 @@ s4grid:PowerLineProperty a owl:Class .
 #    Individuals
 #################################################################
 
-om:watt a owl:EnergyUnit,
+om:watt a saref:EnergyUnit,
 		owl:NamedIndividual .
 
-s4grid:ActiveEnergy a s4grid:PowerLineProperty,
+ex:ActiveEnergy a s4grid:PowerLineProperty,
         owl:NamedIndividual ;
-    skos:narrower s4grid:TotalIncrementalActiveEnergyImport .
+    skos:narrower ex:TotalIncrementalActiveEnergyImport .
 
-s4grid:DemandRegister a owl:PowerLineProperty,
+ex:DemandRegister a s4grid:PowerLineProperty,
 	owl:NamedIndividual ;
-    skos:narrower s4grid:MaximumDemandRegisterImportC1TP1 .
+    skos:narrower ex:MaximumDemandRegisterImportC1TP1 .
 
-s4grid:MaximumDemandRegisterImportC1TP1Measurement136 a saref:Measurement,
+ex:MaximumDemandRegisterImportC1TP1Measurement136 a saref:Measurement,
         owl:NamedIndividual ;
     saref:hasTimestamp "2023-10-20T21:01:10"^^xsd:dateTime ;
     saref:hasValue "5"^^xsd:unsignedLong ;
     saref:isMeasuredIn om:watt ;
-	saref:relatesToMeasurement s4grid:MaximumDemandRegisterImportC1TP1 .
+	saref:relatesToMeasurement ex:MaximumDemandRegisterImportC1TP1 .
 
-s4grid:Meter1234 a s4grid:Meter,
+ex:Meter1234 a s4grid:Meter,
         owl:NamedIndividual ;
-    saref:hasMeasurement s4grid:TotalIncrementalActiveEnergyImportMeasurement123,
-			s4grid:MaximumDemandRegisterImportC1TP1Measurement136 .
+    saref:hasMeasurement ex:TotalIncrementalActiveEnergyImportMeasurement123,
+			ex:MaximumDemandRegisterImportC1TP1Measurement136 .
 
 om:wattHour a saref:EnergyUnit,
         owl:NamedIndividual .
 
-s4grid:MaximumDemandRegisterImportC1TP1 a s4grid:PowerLineProperty,
+ex:MaximumDemandRegisterImportC1TP1 a s4grid:PowerLineProperty,
         owl:NamedIndividual ;
-    saref:hasObis "1-0:1.6.11.255"^^xsd:string ;
-    saref:hasProperty s4grid:SubstationLine23 ;
-	saref:relatesToProperty s4grid:MaximumDemandRegisterImportC1TP1Measurement136 ;
-	skos:broader s4grid:DemandRegister .
+    s4grid:hasObis "1-0:1.6.11.255"^^xsd:string ;
+    saref:hasProperty ex:SubstationLine23 ;
+	saref:relatesToProperty ex:MaximumDemandRegisterImportC1TP1Measurement136 ;
+	skos:broader ex:DemandRegister .
 
-s4grid:TotalIncrementalActiveEnergyImportMeasurement123 a saref:Measurement,
+ex:TotalIncrementalActiveEnergyImportMeasurement123 a saref:Measurement,
         owl:NamedIndividual ;
     saref:hasTimestamp "2023-10-20T21:01:10"^^xsd:dateTime ;
     saref:hasValue "5"^^xsd:unsignedLong ;
     saref:isMeasuredIn om:wattHour ;
-	saref:relatesToMeasurement s4grid:TotalIncrementalActiveEnergyImport .
+	saref:relatesToMeasurement ex:TotalIncrementalActiveEnergyImport .
 
-s4grid:SubstationLine23 a s4grid:PowerLine,
+ex:SubstationLine23 a s4grid:PowerLine,
         owl:NamedIndividual ;
-    saref:isPropertyOf s4grid:MaximumDemandRegisterImportC1TP1,
-        s4grid:TotalIncrementalActiveEnergyImport .
+    saref:isPropertyOf ex:MaximumDemandRegisterImportC1TP1,
+        ex:TotalIncrementalActiveEnergyImport .
 
-s4grid:TotalIncrementalActiveEnergyImport a s4grid:PowerLineProperty,
+ex:TotalIncrementalActiveEnergyImport a s4grid:PowerLineProperty,
         owl:NamedIndividual ;
-    saref:hasObis "1-0:1.29.0.255"^^xsd:string ;
-    saref:hasProperty s4grid:SubstationLine23 ;
-	saref:relatesToProperty s4grid:TotalIncrementalActiveEnergyImportMeasurement123 ;
-	skos:broader s4grid:ActiveEnergy .
+    s4grid:hasObis "1-0:1.29.0.255"^^xsd:string ;
+    saref:hasProperty ex:SubstationLine23 ;
+	saref:relatesToProperty ex:TotalIncrementalActiveEnergyImportMeasurement123 ;
+	skos:broader ex:ActiveEnergy .
