@@ -80,7 +80,6 @@ ex:ResetServiceOperationInput a s4grid:SimpleActionOperationInput,
     s4grid:getInputFromObis "0-1:94.34.1.255"^^xsd:string ;
 	s4grid:hasActionValue "0"^^xsd:int .
 
-
 ex:PresetAdjustingTimeServiceClock a s4grid:ActionService,
         owl:NamedIndividual ;
     oneM2M:hasOperation ex:PresetAdjustingTimeOperation .

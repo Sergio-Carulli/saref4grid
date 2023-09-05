@@ -25,7 +25,7 @@ s4grid:executesScript a owl:ObjectProperty .
 
 s4grid:hasScriptTable a owl:ObjectProperty .
 
-s4grid:hasSingleScheduleAction a owl:ObjectProperty .
+s4grid:hasSingleScheduledAction a owl:ObjectProperty .
 
 s4grid:storesScript a owl:ObjectProperty .
 
@@ -49,7 +49,7 @@ s4grid:Script a owl:Class .
 
 s4grid:ScriptTable a owl:Class .
 
-s4grid:SingleScheduleAction a owl:Class .
+s4grid:SingleScheduledAction a owl:Class .
 	
 
 #################################################################
@@ -59,20 +59,22 @@ s4grid:SingleScheduleAction a owl:Class .
 ex:Meter1234 a s4grid:Meter,
         owl:NamedIndividual ;
     s4grid:hasScriptTable ex:DisconnectScriptTable ;
-    s4grid:hasSingleScheduleAction ex:DisconnectControlScheduler .
+    s4grid:hasSingleScheduledAction ex:DisconnectControlScheduler .
 
 ex:ConnectionScript a s4grid:Script,
         owl:NamedIndividual .
 
-ex:DisconnectControlScheduler a s4grid:SingleScheduleAction,
+ex:DisconnectControlScheduler a s4grid:SingleScheduledAction,
         owl:NamedIndividual ;
     s4grid:hasExecutionTime "2023-10-25T09:00:00"^^xsd:dateTime ;
-    s4grid:hasObis "0-0:96.3.10.255"^^xsd:string .
+    s4grid:hasObis "0-0:96.3.10.255"^^xsd:string ;
+	s4grid:executesScript ex:DisconnectionScript .
 
 ex:DisconnectScriptTable a s4grid:ScriptTable,
         owl:NamedIndividual ;
     s4grid:storesScript ex:ConnectionScript,
-        ex:DisconnectionScript .
+        ex:DisconnectionScript ;
+	s4grid:hasObis "0-0:10.0.196.255"^^xsd:string .
 
 ex:DisconnectionScript a s4grid:Script,
         owl:NamedIndividual .

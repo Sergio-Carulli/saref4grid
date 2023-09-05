@@ -115,14 +115,14 @@ ex:SeasonActive1 a s4grid:SeasonProfile,
         owl:NamedIndividual ;
 	s4grid:hasSeasonProfileName "January 2023 active"^^xsd:string ;
     s4grid:hasSeasonStart "2023-01-01T00:00:00"^^xsd:dateTime ;
-	s4grid:hasMondayProfile ex:Weekday ;
-	s4grid:hasTuesdayProfile ex:Weekday ;
-	s4grid:hasWednesdayProfile ex:Weekday ;
-	s4grid:hasThursdayProfile ex:Weekday ;
-	s4grid:hasFridayProfile ex:Weekday ;
-	s4grid:hasDayProfile ex:SpecialFriday ;
-	s4grid:hasSaturdayProfile ex:Weekendday ;
-	s4grid:hasSundayProfile ex:Weekendday .
+	s4grid:hasMondayProfile ex:WeekDay ;
+	s4grid:hasTuesdayProfile ex:WeekDay ;
+	s4grid:hasWednesdayProfile ex:WeekDay ;
+	s4grid:hasThursdayProfile ex:WeekDay ;
+	s4grid:hasFridayProfile ex:WeekDay ;
+	s4grid:hasDayProfile ex:SpecialFriday1 ;
+	s4grid:hasSaturdayProfile ex:WeekendDay ;
+	s4grid:hasSundayProfile ex:WeekendDay .
 
 ex:SpecialFriday1 a s4grid:SpecialDayProfile,
         owl:NamedIndividual ;

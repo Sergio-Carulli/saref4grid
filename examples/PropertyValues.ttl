@@ -71,9 +71,9 @@ ex:PropertyValue678 a s4grid:PropertyValue,
 ex:ActivePowerLimitContract1TariffPeriod1 a s4grid:MeterProperty,
         owl:NamedIndividual ;
     s4grid:hasObis "0-1:94.34.1.255"^^xsd:string ;
-	skos:broader ex:PowerLimit .
+	skos:broader s4grid:PowerLimit .
 
-ex:Network a s4grid:MeterProperty,
+s4grid:Network a s4grid:MeterProperty,
         owl:NamedIndividual ;
     skos:narrower ex:MulticastCommunicationIdentifier .
 
@@ -86,11 +86,11 @@ ex:PropertyValue234 a s4grid:PropertyValue,
     saref:hasValue "1200"^^xsd:int ;
 	s4grid:hasUnit om:watt .
 	
-ex:PowerLimit a s4grid:MeterProperty,
+s4grid:PowerLimit a s4grid:MeterProperty,
 		owl:NamedIndividual ;
 	skos:narrower ex:ActivePowerLimitContract1TariffPeriod1 .
 
 ex:MulticastCommunicationIdentifier a s4grid:MeterProperty,
         owl:NamedIndividual ;
     s4grid:hasObis "0-0:96.1.5.255"^^xsd:string ;
-    skos:broader ex:Network .
+    skos:broader s4grid:Network .

@@ -267,11 +267,11 @@ s4grid:hasScriptTable a owl:ObjectProperty ;
     rdfs:domain s4grid:Meter ;
     rdfs:range s4grid:ScriptTable .
 
-s4grid:hasSingleScheduleAction a owl:ObjectProperty ;
-	rdfs:comment "The single schedule action of a meter"@en ;
-    rdfs:label "has single schedule action"@en ;
+s4grid:hasSingleScheduledAction a owl:ObjectProperty ;
+	rdfs:comment "The single scheduled action of a meter"@en ;
+    rdfs:label "has single scheduled action"@en ;
     rdfs:domain s4grid:Meter ;
-    rdfs:range s4grid:SingleScheduleAction .
+    rdfs:range s4grid:SingleScheduledAction .
 
 s4grid:hasSundayProfile a owl:ObjectProperty ;
 	rdfs:comment "It defines the day profile valid on Sunday"@en ;
@@ -547,8 +547,7 @@ s4grid:toValue a owl:DatatypeProperty ;
 	
 oneM2M:Device a owl:Class ;
 	rdfs:isDefinedBy <https://git.onem2m.org/MAS/BaseOntology> ;
-    rdfs:label "Device"@en ;
-    owl:equivalentClass saref:Meter .
+    rdfs:label "Device"@en .
 
 oneM2M:OperationInput a owl:Class ;
 	rdfs:isDefinedBy <https://git.onem2m.org/MAS/BaseOntology> ;
@@ -927,9 +926,9 @@ s4grid:SimpleActionOperationInput a owl:Class ;
             owl:onProperty s4grid:hasActionValue ],
         s4grid:CosemOperationInput .
 
-s4grid:SingleScheduleAction a owl:Class ;
+s4grid:SingleScheduledAction a owl:Class ;
 	rdfs:comment "[COSEM] This class allows modelling the execution of periodic actions within a meter. Such actions are not necessarily linked to tariffication"@en ;
-    rdfs:label "Single Schedule Action"@en ;
+    rdfs:label "Single Scheduled Action"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty s4grid:executesScript ] .
