@@ -23,7 +23,7 @@
 
 s4grid:hasPropertyValue a owl:ObjectProperty .
 
-saref:hasProperty a owl:ObjectProperty .
+s4grid:hasProperty a owl:ObjectProperty .
 
 s4grid:hasUnit a owl:ObjectProperty .
 
@@ -65,8 +65,8 @@ ex:Meter1234 a s4grid:Meter,
 
 ex:PropertyValue678 a s4grid:PropertyValue,
         owl:NamedIndividual ;
-    saref:hasProperty ex:MulticastCommunicationIdentifier ;
-    saref:hasValue "224.0.1.0"^^xsd:string .
+    s4grid:hasProperty ex:MulticastCommunicationIdentifier ;
+    s4grid:hasValue "224.0.1.0"^^xsd:string .
 
 ex:ActivePowerLimitContract1TariffPeriod1 a s4grid:MeterProperty,
         owl:NamedIndividual ;
@@ -82,8 +82,8 @@ om:watt a saref:UnitOfMeasure,
 
 ex:PropertyValue234 a s4grid:PropertyValue,
         owl:NamedIndividual ;
-    saref:hasProperty ex:ActivePowerLimitContract1TariffPeriod1 ;
-    saref:hasValue "1200"^^xsd:int ;
+    s4grid:hasProperty ex:ActivePowerLimitContract1TariffPeriod1 ;
+    s4grid:hasValue "1200"^^xsd:int ;
 	s4grid:hasUnit om:watt .
 	
 s4grid:PowerLimit a s4grid:MeterProperty,

@@ -679,7 +679,7 @@ s4grid:ConnectivityState a owl:Class ;
         saref:State .
 
 s4grid:CosemOperationInput a owl:Class ;
-	rdfs:comment "This class specifies the instantiation at which a service (get, set or action) is to be executed by indicating the OBIS code"@en ;
+	rdfs:comment "This class specifies the instantiation at which a service (get, set or action) is going to be executed by indicating the OBIS code"@en ;
     rdfs:label "Cosem Operation Input"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
