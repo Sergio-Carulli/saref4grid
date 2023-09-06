@@ -109,7 +109,7 @@ GRID-TEST-107;GRID-19;Remote management of meters;Meter hasActivityCalendar Acti
 GRID-TEST-108;GRID-20;Remote management of meters;Meter hasActivityCalendar ActivityCalendar
 GRID-TEST-109;GRID-21;Remote management of meters;Meter hasPropertyValue PropertyValue
 GRID-TEST-110;GRID-21;Remote management of meters;PowerLimit type MeterProperty
-GRID-TEST-111;GRID-22;;PropertyValue hasValue
+GRID-TEST-111;GRID-22;Remote management of meters;PropertyValue hasValue
 GRID-TEST-112;GRID-22;Remote management of meters;ActivePowerLimitContract1TariffPeriod1 type MeterProperty
 GRID-TEST-113;GRID-22;Remote management of meters;ActivePowerLimitContract1TariffPeriod1  broader PowerLimit
 GRID-TEST-114;GRID-22;Remote management of meters;ActivePowerLimitContract1TariffPeriod1PropertyValue type PropertyValue
