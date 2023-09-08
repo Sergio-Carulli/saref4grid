@@ -32,7 +32,7 @@ oneM2M:hasInput a owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-s4grid:getInputFromObis a owl:DatatypeProperty .
+s4grid:obtainInputFromObis a owl:DatatypeProperty .
 
 s4grid:hasActionValue a owl:DatatypeProperty .
 
@@ -77,7 +77,7 @@ ex:ResetServiceOperation a s4grid:ActionOperation,
 
 ex:ResetServiceOperationInput a s4grid:SimpleActionOperationInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "0-1:94.34.1.255"^^xsd:string ;
+    s4grid:obtainInputFromObis "0-1:94.34.1.255"^^xsd:string ;
 	s4grid:hasActionValue "0"^^xsd:int .
 
 ex:PresetAdjustingTimeServiceClock a s4grid:ActionService,
@@ -90,7 +90,7 @@ ex:PresetAdjustingTimeOperation a s4grid:ActionOperation,
 
 ex:PresetAdjustingTime1 a s4grid:PresetAdjustingTime,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "0-0:1.0.0.255"^^xsd:string ;
+    s4grid:obtainInputFromObis "0-0:1.0.0.255"^^xsd:string ;
 	s4grid:hasPresetTime "2023-05-30T09:00:00"^^xsd:dateTime ;
 	s4grid:hasValidityIntervalStart "2023-05-30T10:00:00"^^xsd:dateTime ;
 	s4grid:hasValidityIntervalEnd "2023-05-30T12:00:00"^^xsd:dateTime .

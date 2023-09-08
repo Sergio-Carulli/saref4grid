@@ -32,13 +32,13 @@ oneM2M:hasInput a owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-s4grid:getInputFromObis a owl:DatatypeProperty .
+s4grid:obtainInputFromObis a owl:DatatypeProperty .
 
-s4grid:inputObjectType a owl:DatatypeProperty .
+s4grid:hasInputObjectType a owl:DatatypeProperty .
 
-s4grid:getInputForProperty a owl:DatatypeProperty .
+s4grid:obtainInputForProperty a owl:DatatypeProperty .
 
-s4grid:inputDataType a owl:DatatypeProperty .
+s4grid:hasInputDataType a owl:DatatypeProperty .
 
 
 #################################################################
@@ -78,8 +78,8 @@ ex:SetOperationMulticastCommunicationIdentifier a s4grid:SetOperation,
 
 ex:InputMulticastCommunicationIdentifier a s4grid:SetOperationObisInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "0-0:96.1.5.255"^^xsd:string ;
-	s4grid:inputObjectType "s4grid:PropertyValue"^^xsd:string .
+    s4grid:obtainInputFromObis "0-0:96.1.5.255"^^xsd:string ;
+	s4grid:hasInputObjectType "s4grid:PropertyValue"^^xsd:string .
 
 ex:SetServiceCapturePeriodIncrementalLoadProfile a s4grid:SetService,
         owl:NamedIndividual ;
@@ -91,9 +91,9 @@ ex:SetOperationCapturePeriodIncrementalLoadProfile a s4grid:SetOperation,
 
 ex:InputCapturePeriodIncrementalLoadProfile a s4grid:SetOperationDataInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string ;
-	s4grid:getInputForProperty "s4grid:hasCapturePeriod"^^xsd:string ;
-	s4grid:inputDataType "xsd:unsignedLong"^^xsd:string .
+    s4grid:obtainInputFromObis "1-0:99.1.0.255"^^xsd:string ;
+	s4grid:obtainInputForProperty "s4grid:hasCapturePeriod"^^xsd:string ;
+	s4grid:hasInputDataType "xsd:unsignedLong"^^xsd:string .
 
 ex:SetServiceDisconnectionScript a s4grid:SetService,
         owl:NamedIndividual ;
@@ -105,6 +105,6 @@ ex:SetOperationDisconnectionScript a s4grid:SetOperation,
 
 ex:InputDisconnectionScript a s4grid:SetOperationObjectInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "0-0:10.0.196.255"^^xsd:string ;
-	s4grid:getInputForProperty "s4grid:storesScript"^^xsd:string ;
-	s4grid:inputObjectType "s4grid:Script"^^xsd:string .
+    s4grid:obtainInputFromObis "0-0:10.0.196.255"^^xsd:string ;
+	s4grid:obtainInputForProperty "s4grid:storesScript"^^xsd:string ;
+	s4grid:hasInputObjectType "s4grid:Script"^^xsd:string .

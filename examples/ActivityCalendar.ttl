@@ -39,7 +39,7 @@ s4grid:hasThursdayProfile a owl:ObjectProperty .
 
 s4grid:hasFridayProfile a owl:ObjectProperty .
 
-s4grid:hasDayProfile a owl:ObjectProperty .
+s4grid:hasSpecialDayProfile a owl:ObjectProperty .
 
 s4grid:hasSaturdayProfile a owl:ObjectProperty .
 
@@ -120,7 +120,7 @@ ex:SeasonActive1 a s4grid:SeasonProfile,
 	s4grid:hasWednesdayProfile ex:WeekDay ;
 	s4grid:hasThursdayProfile ex:WeekDay ;
 	s4grid:hasFridayProfile ex:WeekDay ;
-	s4grid:hasDayProfile ex:SpecialFriday1 ;
+	s4grid:hasSpecialDayProfile ex:SpecialFriday1 ;
 	s4grid:hasSaturdayProfile ex:WeekendDay ;
 	s4grid:hasSundayProfile ex:WeekendDay .
 

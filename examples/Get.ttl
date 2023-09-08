@@ -34,13 +34,13 @@ oneM2M:hasOutput a owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-s4grid:getInputFromObis a owl:DatatypeProperty .
+s4grid:obtainInputFromObis a owl:DatatypeProperty .
 
-s4grid:outputObjectType a owl:DatatypeProperty .
+s4grid:hasOutputObjectType a owl:DatatypeProperty .
 
-s4grid:getInputForProperty a owl:DatatypeProperty .
+s4grid:obtainInputForProperty a owl:DatatypeProperty .
 
-s4grid:outputDataType a owl:DatatypeProperty .
+s4grid:hasOutputDataType a owl:DatatypeProperty .
 
 
 #################################################################
@@ -83,11 +83,11 @@ ex:GetOperationIncrementalLoadProfile a s4grid:GetOperation,
 
 ex:OperationInputIncrementalLoadProfile a s4grid:CosemOperationInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string .
+    s4grid:obtainInputFromObis "1-0:99.1.0.255"^^xsd:string .
 
 ex:OutputIncrementalLoadProfile a s4grid:GetOperationObjectOutput,
         owl:NamedIndividual ;
-    s4grid:outputObjectType "s4grid:ProfileGeneric"^^xsd:string .
+    s4grid:hasOutputObjectType "s4grid:ProfileGeneric"^^xsd:string .
 
 ex:GetServiceCapturePeriodIncrementalLoadProfile a s4grid:GetService,
         owl:NamedIndividual ;
@@ -100,12 +100,12 @@ ex:GetOperationCapturePeriodIncrementalLoadProfile a s4grid:GetOperation,
 
 ex:OperationInputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationPropertyInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "1-0:99.1.0.255"^^xsd:string ;
-	s4grid:getInputForProperty "s4grid:hasCapturePeriod"^^xsd:string .
+    s4grid:obtainInputFromObis "1-0:99.1.0.255"^^xsd:string ;
+	s4grid:obtainInputForProperty "s4grid:hasCapturePeriod"^^xsd:string .
 
 ex:OutputCapturePeriodIncrementalLoadProfile a s4grid:GetOperationDataOutput,
         owl:NamedIndividual ;
-    s4grid:outputDataType "xsd:unsignedLong"^^xsd:string .
+    s4grid:hasOutputDataType "xsd:unsignedLong"^^xsd:string .
 
 ex:GetServiceDisconnectionScript a s4grid:GetService,
         owl:NamedIndividual ;
@@ -118,9 +118,9 @@ ex:GetOperationDisconnectionScript a s4grid:GetOperation,
 
 ex:OperationInputDisconnectionScript a s4grid:GetOperationPropertyInput,
         owl:NamedIndividual ;
-    s4grid:getInputFromObis "0-0:10.0.196.255"^^xsd:string ;
-	s4grid:getInputForProperty "s4grid:storesScript"^^xsd:string .
+    s4grid:obtainInputFromObis "0-0:10.0.196.255"^^xsd:string ;
+	s4grid:obtainInputForProperty "s4grid:storesScript"^^xsd:string .
 
 ex:OutputDisconnectionScript a s4grid:GetOperationObjectOutput,
         owl:NamedIndividual ;
-    s4grid:outputObjectType "s4grid:Script"^^xsd:string .
+    s4grid:hasOutputObjectType "s4grid:Script"^^xsd:string .
