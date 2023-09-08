@@ -12,8 +12,8 @@
 @base <https://saref.etsi.org/saref4grid/> .
 
 <https://saref.etsi.org/saref4grid/> rdf:type owl:Ontology ;
-	dcterms:title "SAREF extension for electric grid"@en ;
-	dcterms:description "This ontology extends the SAREF ontology for the electric grid domain."@en ;
+	dcterms:title "SAREF extension for smart grid"@en ;
+	dcterms:description "This ontology extends the SAREF ontology for the smart grid domain."@en ;
 	dcterms:publisher <https://www.etsi.org/> ;
 	dcterms:creator <http://www.garcia-castro.com/foaf.rdf#me> ;
     owl:versionIRI <https://saref.etsi.org/saref4grid/v1.0.0/> ;
@@ -208,8 +208,8 @@ s4grid:hasDayProfile a owl:ObjectProperty ;
     rdfs:range s4grid:DayProfile .
 
 s4grid:hasDaySchedule a owl:ObjectProperty ;
-	rdfs:comment "The day scheduled of a day profile"@en ;
-    rdfs:label "has day scheduled"@en ;
+	rdfs:comment "The day schedule of a day profile"@en ;
+    rdfs:label "has day schedule"@en ;
     rdfs:domain s4grid:DayProfile ;
     rdfs:range s4grid:DaySchedule .
 
@@ -246,7 +246,7 @@ s4grid:hasProfileGeneric a owl:ObjectProperty ;
     rdfs:range s4grid:ProfileGeneric .
 	
 s4grid:hasProperty a owl:ObjectProperty ;
-	rdfs:comment "A relationship between a quantity and the property it relates to"@en ;
+	rdfs:comment "A relationship between a property value and the property it relates to"@en ;
     rdfs:label "has property"@en ;
     rdfs:domain s4grid:PropertyValue ;
     rdfs:range saref:Property .
@@ -445,7 +445,7 @@ s4grid:hasOutputState a owl:DatatypeProperty ;
     rdfs:range xsd:boolean .
 
 s4grid:hasProductId a owl:DatatypeProperty ;
-	rdfs:comment "[COSEM] Vendor assigned unique identifier for specific product"@en ;
+	rdfs:comment "[COSEM] Vendor assigned unique identifier for a specific product"@en ;
     rdfs:label "has product id"@en ;
     rdfs:range xsd:unsignedShort .
 
@@ -470,7 +470,7 @@ s4grid:hasSpecialDate a owl:DatatypeProperty ;
     rdfs:range xsd:date .
 
 s4grid:hasSpecialDayDate a owl:DatatypeProperty ;
-	rdfs:comment "Dates at which a normal day is considered a special date (like Christmas)"@en ;
+	rdfs:comment "Dates at which a normal day is considered a special date (e.g., holidays)"@en ;
     rdfs:label "has special day date"@en ;
     rdfs:range xsd:date .
 
@@ -706,7 +706,7 @@ s4grid:EntryDescriptor a owl:Class ;
     rdfs:subClassOf s4grid:SelectiveAccess .
 
 s4grid:Firmware a owl:Class ;
-	rdfs:comment "[COSEM] This class holds identification information related to administration and maintenance of PRIME NB OFDM PLC devices. They are not communication parameters but allow the device management."@en ;
+	rdfs:comment "[COSEM] This class holds identification information related to administration and maintenance of devices. They are not communication parameters but allow the device management."@en ;
     rdfs:label "Firmware"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -786,7 +786,7 @@ s4grid:NetworkInterface a owl:Class ;
             owl:onProperty s4grid:hasMACAddress ] .
 
 s4grid:PowerLineProperty a owl:Class ;
-	rdfs:comment "Class to group those properties related to the power lines"@en ;
+	rdfs:comment "Class to group those properties related to power lines"@en ;
     rdfs:label "Power Line Property"@en ;
     rdfs:subClassOf saref:Property .
 	
@@ -840,7 +840,7 @@ s4grid:Script a owl:Class ;
     rdfs:subClassOf saref:Function .
 
 s4grid:SeasonProfile a owl:Class ;
-	rdfs:comment "[COSEM] This class represents a season which is defined by his starting date and a specific day profile to be executed"@en ;
+	rdfs:comment "[COSEM] This class represents a season which is defined by its starting date and a specific day profile to be executed"@en ;
     rdfs:label "Season Profile"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -876,7 +876,7 @@ s4grid:SelectiveAccess a owl:Class ;
     rdfs:subClassOf oneM2M:OperationInput .
 
 s4grid:SetOperationDataInput a owl:Class ;
-	rdfs:comment "This class specifies that just the range of a datatype property of the instantiate is going to be modified"@en ;
+	rdfs:comment "This class specifies that just the range of a datatype property of the instance is going to be modified"@en ;
     rdfs:label "Set Operation Data Input"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -887,7 +887,7 @@ s4grid:SetOperationDataInput a owl:Class ;
         s4grid:CosemOperationInput .
 
 s4grid:SetOperationObisInput a owl:Class ;
-	rdfs:comment "This class specifies that the whole instantiate is going to be modified"@en ;
+	rdfs:comment "This class specifies that the whole instance is going to be modified"@en ;
     rdfs:label "Set Operation Obis Input"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -895,7 +895,7 @@ s4grid:SetOperationObisInput a owl:Class ;
         s4grid:CosemOperationInput .
 
 s4grid:SetOperationObjectInput a owl:Class ;
-	rdfs:comment "This class specifies that just the range of an object property of the instantiate is going to be modified"@en ;
+	rdfs:comment "This class specifies that just the range of an object property of the instance is going to be modified"@en ;
     rdfs:label "Set Operation Object Input"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -934,7 +934,7 @@ s4grid:SingleScheduledAction a owl:Class ;
             owl:onProperty s4grid:executesScript ] .
 
 s4grid:SpecialDayEntry a owl:Class ;
-	rdfs:comment "This class represents the parameters that are needed by an activity calendar to adding a new special day"@en ;
+	rdfs:comment "This class represents the parameters that are needed by an activity calendar for adding a new special day"@en ;
     rdfs:label "Special Day Entry"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -1082,7 +1082,7 @@ s4grid:TimeThreshold a owl:NamedIndividual,
 
 s4grid:TransformerRatio a owl:NamedIndividual,
         s4grid:MeterProperty ;
-	rdfs:comment "Property of the meter indicating the transformer turns ratio"@en ;
+	rdfs:comment "Property of the meter indicating the transformer turn ratio"@en ;
     rdfs:label "Transformer Ratio"@en .
 
 s4grid:Voltage a owl:NamedIndividual,
@@ -1092,10 +1092,10 @@ s4grid:Voltage a owl:NamedIndividual,
 
 s4grid:VoltageSagNumber a owl:NamedIndividual,
         s4grid:MeterProperty ;
-	rdfs:comment "Property of the meter indicating the number of voltage sag detected"@en ;
+	rdfs:comment "Property of the meter indicating the number of voltage sags detected"@en ;
     rdfs:label "Voltage Sag Number"@en .
 
 s4grid:VoltageSwellNumber a owl:NamedIndividual,
         s4grid:MeterProperty ;
-	rdfs:comment "Property of the meter indicating the number of voltage swell detected"@en ;
+	rdfs:comment "Property of the meter indicating the number of voltage swells detected"@en ;
     rdfs:label "Voltage Swell Number"@en .
